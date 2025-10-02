@@ -1,0 +1,646 @@
+/* Basic styles */
+/**
+ * 1. Avoid the IE 10-11 `min-height` bug.
+ * 2. Set `flex-shrink` to `0` to prevent some browsers from
+ *    letting these items shrink to smaller than their content's default
+ *    minimum size. */
+
+:root {
+    max-width: 1200px;
+    --white: #ffffff;
+    --orange: #f84d0967;
+    --black:rgb(15, 14, 14);
+    --back-color: #333;
+    --back-color_lighter: rgb(90, 82, 82);
+    --shadow: #f4f4f4;
+    --grey: #3333;
+    --lightgrey: lightgrey;
+    --clr-dark:230 35% 90%;
+    --clr-white:0 0% 100%;
+    --clr-lights:0 0% 100%;
+    --text-border: var(--orange);
+}
+
+*,  
+*::before, 
+*::after { 
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video {
+  max-width: 100%;
+}
+
+@media screen and (width >= 80rem) {
+  .content {
+    margin: 1em 2em;
+  }
+}
+
+*{
+  line-height: 1.6;  
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+  background-color: var(--clr-dark);
+}
+
+ /* .navlogo .logo::before {
+    background-image: linear-gradient(35deg, var(--gradient));
+    background-size: 1000% 100%;
+    top: -50%;
+    transform: rotate(45deg) translateX(-46%);
+    animation: 15s linear 0s infinite alternate none running gradient;
+    border: 2px solid var(--color-background-alt);
+    padding: 140%;
+}
+
+.navlogo::before {
+    background-color: var(--color-background-alt);
+    content: "";
+    position: absolute;
+    transform: rotate(45deg) translateX(-20%);
+    z-index: -1;
+    padding: 70%;
+}
+
+.logo::before {
+    background-color: var(--color-background-alt);
+    content: "";
+    position: absolute;
+    transform: rotate(45deg) translateX(-20%);
+    z-index: -1;
+    padding: 70%;
+} */
+
+
+/*body styling*/
+.site { 
+  display: flex;
+  justify-content: flex-start;
+  min-height: 100vh;
+  flex-direction: column;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--clr-lights);
+}
+
+/* Space to account for the fixed header */
+.content {
+  flex: 1;
+    /* width: 100%;
+    padding-top: 100px;
+    flex-wrap: wrap;
+    display: flex;  
+    flex-direction: row;
+    min-height: 100vh;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center; */
+}
+
+.content::after {
+  content: '\00a0'; /* &nbsp; */
+  display: block;
+  margin-top: var(--space);
+  height: 20px;
+  visibility: hidden;
+}
+
+/* Fixed Positioning */
+
+.fixed-nav {
+    /* position: fixed;      
+    top: 0;
+    left: 0;*/
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: flex-end;
+    background-color: var(--back-color_lighter); 
+    color: white;
+    padding: 10px;
+    margin: 0px;
+    text-align: center;
+    z-index: 1000; 
+}
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+
+@media (max-width: 800px) {
+  .fixed-nav{
+    flex-direction: column;
+    align-items: flex-end;
+  } 
+}
+
+.fixed-nav .logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+  border-style: ridge;
+}
+
+@media (max-width: 800px) {
+  .fixed-nav .logo{
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius:0;
+    align-self: flex-start;
+  } 
+}
+
+.fixed-nav a{
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0;
+    padding: 5px;
+    /* padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 5px; */
+    align-items: flex-start;
+    text-decoration: none;
+}
+
+/* A flexbox always consists of:
+
+a Flex Container - the parent (container) <div> element
+Flex Items - the items inside the container <div> */
+
+.fixed-nav a:hover{
+    background-color: var(--black);
+    opacity: 0.6;
+    transform: scale(2);
+}
+
+/* no scale transform when on mobile for fixednav */
+@media (max-width: 800px) {
+  .fixed-nav a:hover{
+    flex-direction: column;
+    align-items: flex-end;
+    transform: none;
+  } 
+}
+
+/*empty space on right of nav*/
+.fixed-nav::after {
+  /*hex code for a non-breaking space */
+  content: '\00a0'; 
+  margin-top: 2px;
+  height: 10px;
+  visibility: hidden;
+}
+
+ textarea {
+  resize: vertical;
+  min-height: 240px;
+  padding: 30px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form {
+display: flex;
+flex-direction: column;
+}
+
+label {
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+hr {
+  height: 2px;
+}
+
+@media (max-width: 800px) {
+  hr {
+    display: none;
+  } 
+}
+/* Relative positioning */
+.bannerbackground {
+    width: 100%;
+    background-color: var(--shadow);
+    color: white;
+}
+
+/* header */
+header{
+  display: flex;
+  justify-content: space-around;
+  margin: 0px;
+  padding: 10px;
+  /* background-image: url(gradient.png); */
+  background-image: url(crawler_background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+    display: block;
+    font-size: 4em;
+    color: var(--white);
+} 
+
+@media (max-width: 800px) {
+  h1{
+    display: none;
+  } 
+}
+
+h1:hover{
+  color:var(--shadow);
+  /* flex-shrink :0;
+  transition: transform 0.3s ease; */
+}
+
+header img{
+  height: 180px;
+  /* makes round logo */
+  border-radius: 110px;
+  border-style: ridge;
+  border-color: var(--back-color);
+} 
+
+
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    top: 0;
+    left: 0;
+    background-color: var(--black); 
+    color: var(--white);
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    z-index: 1000; 
+}
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+
+@media (max-width: 800px) {
+  .nav{
+    flex-direction: column;
+    align-items: center;
+  } 
+}
+
+.nav a{
+    text-transform: uppercase;
+    color: var(--white);
+    padding: 2px;
+    align-items: center;
+    text-decoration: none;
+    font-size: large;
+}
+
+
+/* Flexbox navigation */
+.navlogo {
+    position: relative;
+    align-items: flex-start;
+    background-color: var(--lightgrey);
+    padding: 2px;
+    text-align: center;
+}
+
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .navlogo {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  } 
+}
+
+.nav a:hover{
+    background-color: var(--back-color) ;
+    transform: scale(2);
+    color: var(--white);
+}
+@media (max-width: 800px) {
+.nav a:hover{
+    background-color: var(--back-color) ;
+    transform: none;
+    color: var(--white);
+}
+}
+
+p::first-letter {
+  font-size: 150%;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* Flexbox content area */
+
+/* Flexbox 3 items  */
+.threecolumns{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--shadow);
+    color: white;
+    max-width: 1200px;
+}
+
+/* Responsive layout - makes a one column layout instead of a 3-column layout */
+@media (max-width: 800px) {
+  .threecolumns {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  } 
+}
+
+/* .box 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  } */
+
+.box {
+    background-color: var(--back-color);
+    color: var(--white);
+    padding: 20px;
+    margin: 10px;
+    flex: 1 0 100px;
+    border-radius: 5px;
+}
+ 
+
+.box a{
+    text-transform: uppercase;
+    color: var(--white);
+    padding: 2px;
+    align-items: center;
+    text-decoration: none;
+    font-size: large;
+}
+.box:hover {
+    background-color:var(--black);
+}
+
+form {
+  background-color: whitesmoke;
+  color:var(--black);
+  padding: 10px;
+  margin: 5px;
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap; 
+  justify-content: space-evenly;
+}
+
+.threecolumns .submit, .reset {
+  padding: 5px;
+  margin: 0px;
+  background-color: var(--back-color_lighter);
+  color: #fff;
+  padding: 12px;
+  font-size: 1rem;
+  border:ridge;
+  border-radius: 2px;
+  cursor: pointer;
+  
+}
+
+
+/* Bottom forms 2 items  */
+.bottom{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:var(--shadow);
+    color: white;
+    max-width: 1200px;
+
+}
+
+
+@media (max-width: 800px) {
+  .bottom {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  } 
+}
+
+.bottombox {
+    background-color: var(--back-color_lighter);
+    color: var(--white);
+    padding: 20px;
+    margin: 10px;
+    flex: 1 0 100px;
+    border-radius: 5px;
+}
+
+/* @media (max-width: 800px) {
+  .bottombox {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  } 
+} */
+.bottombox:hover {
+    background-color: var(--black);
+}
+
+
+.bottombox {
+  padding: 40px 20px;
+  background-color: var(--back-color);
+}
+
+.bottombox h2 {
+  text-align: center;
+  color: var(--shadow);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.gallery-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.gallery-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.gallery-container::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 10px;
+    }
+
+.gallery-container img {
+      height: 200px;
+      border-radius: 8px;
+      flex-shrink: 0;
+  object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+.gallery-container img:hover {
+      transform: scale(1.05);
+    }
+
+@media (max-width: 768px) {
+  .gallery-container img {
+     height: 150px;
+  }
+}
+
+.main {
+    background-color: var(--back-color);
+    color: var(--clr-white);
+    padding: 20px;
+    margin: 10px;
+    flex: 1 0 100px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Footer styling */
+footer {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));;
+    padding: 1.2rem;
+    min-width: 200px;
+    margin-left: 10px;
+    border: 0.12rem;
+    width: 100%;
+    background-color: var(--back-color_lighter);
+
+}
+
+.footerbackground{
+    background-image: url(mmrtrack.png); 
+    min-width: 800px;
+    height: 150px;
+    padding: 0px;
+    margin: 0px;
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+}
+
+@media (max-width: 800px) {
+  .footerbackground {
+    background-image: url(mmrsmall.png); 
+    background-repeat: no-repeat; 
+    min-width: 200px;
+    align-items: center;
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+}
+  } 
+
+.footercopyright {
+  color: black;
+      transition: color  0.2s ease-in-out;
+}
+
+.footercopyright p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+  .footercopyright p{
+  font-size: 1rem;
+  text-align: start;
+  color: black;
+}
+}
+
+button{
+  position: relative;
+  background-color: var(--shadow); 
+  border: 3px;
+  border-radius: 15px;
+  border-style: ridge;
+  border-color: var(--black);
+}
+
+button:hover{
+  transform: scale(2);
+  transition-duration: 2s;
+}
+
+@media (max-width: 800px) {
+  button:hover {
+    transform: none;
+
+ } 
+}
+
+
+
+.bottombox a{
+  color: white;
+  text-decoration: none;
+
+}
+
+        .signature {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--shadow);
+        }
+
+
+/* 
+from Alex- to check on how it works and adjust 
+.social {
+    display: inline-grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 0.12rem solid rgba(255, 255, 255, 0.08);
+    background: transparent;
+    transition: transform 0.3s 
+ease, box-shadow 0.3s 
+ease, background 0.2s 
+ease; 
+} */
+
