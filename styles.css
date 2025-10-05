@@ -97,7 +97,7 @@ video {
     display: flex;  
     flex-direction: row;
     min-height: 100vh;
-    max-width: 1200px;
+    /* max-width: 1200px;*/
     align-items: center;
     justify-content: center; */
 }
@@ -362,7 +362,7 @@ p::first-letter {
     align-items: center;
     background-color: var(--shadow);
     color: white;
-    max-width: 1200px;
+    /* max-width: 1200px; */
 }
 
 /* Responsive layout - makes a one column layout instead of a 3-column layout */
@@ -441,7 +441,7 @@ form {
     align-items: center;
     background-color:var(--shadow);
     color: white;
-    max-width: 1200px;
+    /* max-width: 1200px; */
 
 }
 
@@ -643,5 +643,6 @@ ease, box-shadow 0.3s
 ease, background 0.2s 
 ease; 
 } */
+
 
 
