@@ -6,7 +6,7 @@
  *    minimum size. */
 
 :root {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     --white: #ffffff;
     --orange: #f84d0967;
     --black:rgb(15, 14, 14);
@@ -81,7 +81,7 @@ video {
   justify-content: flex-start;
   min-height: 100vh;
   flex-direction: column;
-  max-width: 1280px;
+  /* max-width: 1280px; */
   width: 100%;
   margin: 0;
   padding: 0;
@@ -643,4 +643,5 @@ ease, box-shadow 0.3s
 ease, background 0.2s 
 ease; 
 } */
+
 
